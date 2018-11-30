@@ -50,6 +50,7 @@ return [
    'required_without'      => 'The {field} field is required when {param} is not present.',
    'timezone'              => 'The {field} field must be a valid timezone.',
    'valid_base64'          => 'The {field} field must be a valid base64 string.',
+   'valid_json'            => 'The {field} field must contain a valid JSON string.',
    'valid_email'           => 'The {field} field must contain a valid email address.',
    'valid_emails'          => 'The {field} field must contain all valid email addresses.',
    'valid_ip'              => 'The {field} field must contain a valid IP.',

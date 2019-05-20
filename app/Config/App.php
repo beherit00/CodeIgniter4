@@ -5,6 +5,21 @@ use CodeIgniter\Config\BaseConfig;
 class App extends BaseConfig
 {
 
+	public function __construct()
+	{
+		parent::__construct();
+
+		// Guess protocol, host and port if $baseURL is not set.
+		if($this->baseURL === false)
+		{
+			$this->baseURL =
+				(($_SERVER['HTTPS'] === 'on' || $_SERVER['HTTPS'] === 1) ||
+				isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+				$_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https' ? 'https://' : 'http://') . 
+				$_SERVER['HTTP_HOST'] . 
+				(!in_array($_SERVER['SERVER_PORT'], [80, 443]) ? ':'.$_SERVER['SERVER_PORT'] : '');
+		}
+	}
 	/*
 	|--------------------------------------------------------------------------
 	| Base Site URL
